@@ -1,1 +1,2 @@
 # Quantitative-MALDI-LSCM
+This repository contains MATLAB code as well as sample mass spectrometry and fluorescence microscopy data implementing the methods described in the paper "Quantitative assessment of anti-cancer drug efficacy from coregistered mass-spectrometry and fluorescence-microscopy images of multicellular tumor spheroids" , Jan Michalek et al., to be published in Microscopy and Microanalysis.
