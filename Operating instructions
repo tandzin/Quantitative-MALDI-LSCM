@@ -16,7 +16,7 @@ Microscopy and Microanalysis. Cambridge University Press, 1–12. doi:10.1017/S1
 The program flow in the 'MALDI_IHC_peels_github.m' MATLAB script matches the visual flowchart in Fig.6 of the paper 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 To run the demos in the script
-		-> unzip the directory 'github' to a location of your choice
+		-> download the directory 'github' to a location of your choice
 		-> launch MATLAB (the script was developed with MATLAB R2016b)
 		-> change directory to 'github'
 		-> type 'MALDI_IHC_peels_github' on the command line
