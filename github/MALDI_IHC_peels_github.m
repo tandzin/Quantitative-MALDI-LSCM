@@ -9,7 +9,7 @@
 % ----------------------------------------------------------------------------------------------------------
 % The algorithm is based on the theory presented in the paper:
 %
-% Michálek, Jan, Karel Št?pka, Michal Kozubek, Jarmila Navrátilová, Barbora Pavlatovská, Markéta Machálková, Jan Preisler, and Adam Pruška. n.d.
+% Michálek, Jan, Karel Štepka, Michal Kozubek, Jarmila Navrátilová, Barbora Pavlatovská, Markéta Machálková, Jan Preisler, and Adam Pruška. n.d.
 % 'Quantitative Assessment of Anti-Cancer Drug Efficacy From Coregistered Mass Spectrometry and Fluorescence Microscopy Images of Multicellular Tumor Spheroids.'
 % Microscopy and Microanalysis. Cambridge University Press, 1–12. doi:10.1017/S1431927619014983.
 % ---------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -88,7 +88,6 @@ if ~isempty (LSCM_R_name);% if red LSCM image is provided
     disp(['LSCM_R_name=' LSCM_R_name]);
     LSCM_Img_R_spheroid=SUM_LSCM_Img_R/length(InfoImage);
     moving_red=LSCM_Img_R_spheroid;% will be aligned with the fixed MALDI images
-    z_stack_length=length(InfoImage);
 end;
 if ~isempty (LSCM_G_name);% if green LSCM image is provided
     N_graphs=N_graphs+1;% then means of green signal will be plotted
@@ -103,7 +102,6 @@ if ~isempty (LSCM_G_name);% if green LSCM image is provided
     disp(['LSCM_G_name=' LSCM_G_name]);
     LSCM_Img_G_spheroid=SUM_LSCM_Img_G/length(InfoImage);
     moving_green=LSCM_Img_G_spheroid;% will be aligned with the fixed MALDI images
-    z_stack_length=length(InfoImage);
 end;
 
 if ~isempty (LSCM_B_name);% if blue LSCM image is provided
@@ -119,7 +117,6 @@ if ~isempty (LSCM_B_name);% if blue LSCM image is provided
     disp(['LSCM_B_name=' LSCM_B_name]);
     LSCM_Img_B_spheroid=SUM_LSCM_Img_B/length(InfoImage);
     moving_blue=LSCM_Img_B_spheroid;% will be aligned with the fixed MALDI images
-    z_stack_length=length(InfoImage);
 end;
 % if ~isempty (LSCM_T_name); we always have transmission
 InfoImage=imfinfo(LSCM_T_name);
@@ -134,7 +131,6 @@ LSCM_Img_T_spheroid=SUM_LSCM_Img_T/length(InfoImage);
 disp(['LSCM_T_name=' LSCM_T_name]);
 
 % INVERT AND THRESHOLD THE LSCM FIDUCIALS IN A SINGLE OPERATION
-LSCM_fiducial_threshold=LSCM_fiducial_threshold/z_stack_length;
 LSCM_fiducial=single((LSCM_Img_T_spheroid<LSCM_fiducial_threshold)&(LSCM_Img_T_spheroid>0));
 figure('Name','LSCM_fiducial','NumberTitle','off');imshow(LSCM_fiducial,[]);
 LSCM_fiducial_closed = imclose(LSCM_fiducial,se);% morphological closing of dark spots in the fiducials
